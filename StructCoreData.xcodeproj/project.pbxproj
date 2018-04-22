@@ -13,6 +13,15 @@
 		352A850E208C18B60006074A /* StructCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 352A850C208C18B60006074A /* StructCoreData.xcdatamodeld */; };
 		352A8510208C18B60006074A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 352A850F208C18B60006074A /* Assets.xcassets */; };
 		352A8513208C18B60006074A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 352A8511208C18B60006074A /* LaunchScreen.storyboard */; };
+		352A851E208C1AB90006074A /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A851D208C1AB90006074A /* Author.swift */; };
+		352A8520208C1AD20006074A /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A851F208C1AD20006074A /* Book.swift */; };
+		352A8522208C1ADE0006074A /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A8521208C1ADE0006074A /* Store.swift */; };
+		352A8529208C206B0006074A /* StoreMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A8523208C206B0006074A /* StoreMO+CoreDataClass.swift */; };
+		352A852A208C206B0006074A /* StoreMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A8524208C206B0006074A /* StoreMO+CoreDataProperties.swift */; };
+		352A852B208C206B0006074A /* AuthorMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A8525208C206B0006074A /* AuthorMO+CoreDataClass.swift */; };
+		352A852C208C206B0006074A /* AuthorMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A8526208C206B0006074A /* AuthorMO+CoreDataProperties.swift */; };
+		352A852D208C206B0006074A /* BookMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A8527208C206B0006074A /* BookMO+CoreDataClass.swift */; };
+		352A852E208C206B0006074A /* BookMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A8528208C206B0006074A /* BookMO+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +33,15 @@
 		352A850F208C18B60006074A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		352A8512208C18B60006074A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		352A8514208C18B60006074A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		352A851D208C1AB90006074A /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
+		352A851F208C1AD20006074A /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		352A8521208C1ADE0006074A /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		352A8523208C206B0006074A /* StoreMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoreMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		352A8524208C206B0006074A /* StoreMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoreMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		352A8525208C206B0006074A /* AuthorMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthorMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		352A8526208C206B0006074A /* AuthorMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthorMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		352A8527208C206B0006074A /* BookMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		352A8528208C206B0006074A /* BookMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,9 +80,34 @@
 				352A850F208C18B60006074A /* Assets.xcassets */,
 				352A8511208C18B60006074A /* LaunchScreen.storyboard */,
 				352A8514208C18B60006074A /* Info.plist */,
+				352A851B208C1A000006074A /* Struct Models */,
+				352A851A208C19ED0006074A /* Core Data Models */,
 				352A850C208C18B60006074A /* StructCoreData.xcdatamodeld */,
 			);
 			path = StructCoreData;
+			sourceTree = "<group>";
+		};
+		352A851A208C19ED0006074A /* Core Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				352A8525208C206B0006074A /* AuthorMO+CoreDataClass.swift */,
+				352A8526208C206B0006074A /* AuthorMO+CoreDataProperties.swift */,
+				352A8527208C206B0006074A /* BookMO+CoreDataClass.swift */,
+				352A8528208C206B0006074A /* BookMO+CoreDataProperties.swift */,
+				352A8523208C206B0006074A /* StoreMO+CoreDataClass.swift */,
+				352A8524208C206B0006074A /* StoreMO+CoreDataProperties.swift */,
+			);
+			path = "Core Data Models";
+			sourceTree = "<group>";
+		};
+		352A851B208C1A000006074A /* Struct Models */ = {
+			isa = PBXGroup;
+			children = (
+				352A851D208C1AB90006074A /* Author.swift */,
+				352A851F208C1AD20006074A /* Book.swift */,
+				352A8521208C1ADE0006074A /* Store.swift */,
+			);
+			path = "Struct Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,8 +182,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				352A852E208C206B0006074A /* BookMO+CoreDataProperties.swift in Sources */,
 				352A8508208C18B60006074A /* ViewController.swift in Sources */,
 				352A850E208C18B60006074A /* StructCoreData.xcdatamodeld in Sources */,
+				352A851E208C1AB90006074A /* Author.swift in Sources */,
+				352A8529208C206B0006074A /* StoreMO+CoreDataClass.swift in Sources */,
+				352A8522208C1ADE0006074A /* Store.swift in Sources */,
+				352A8520208C1AD20006074A /* Book.swift in Sources */,
+				352A852D208C206B0006074A /* BookMO+CoreDataClass.swift in Sources */,
+				352A852A208C206B0006074A /* StoreMO+CoreDataProperties.swift in Sources */,
+				352A852B208C206B0006074A /* AuthorMO+CoreDataClass.swift in Sources */,
+				352A852C208C206B0006074A /* AuthorMO+CoreDataProperties.swift in Sources */,
 				352A8506208C18B60006074A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
