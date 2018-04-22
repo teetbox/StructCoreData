@@ -20,7 +20,7 @@ extension AuthorMO {
     @NSManaged public var email: String?
     @NSManaged public var birthday: Date?
     @NSManaged public var gender: Bool
-    @NSManaged public var uuid: String?
+    @NSManaged public var uuid: String
     @NSManaged public var book: BookMO?
 
 }

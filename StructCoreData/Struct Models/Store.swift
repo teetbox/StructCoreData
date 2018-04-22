@@ -10,8 +10,18 @@ import Foundation
 
 struct Store {
     let uuid: String
-    let brand: String
-    let address: String
-    let telephone: String
-    var books: [Book]
+    var brand: String?
+    var address: String?
+    var telephone: String?
+    var books: [Book]?
+}
+
+extension Store {
+    init(id: String) {
+        uuid = id
+        brand = nil
+        address = nil
+        telephone = nil
+        books = nil
+    }
 }

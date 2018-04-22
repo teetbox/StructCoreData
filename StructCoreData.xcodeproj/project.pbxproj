@@ -22,6 +22,16 @@
 		352A852C208C206B0006074A /* AuthorMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A8526208C206B0006074A /* AuthorMO+CoreDataProperties.swift */; };
 		352A852D208C206B0006074A /* BookMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A8527208C206B0006074A /* BookMO+CoreDataClass.swift */; };
 		352A852E208C206B0006074A /* BookMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A8528208C206B0006074A /* BookMO+CoreDataProperties.swift */; };
+		352A8532208C4DE90006074A /* ManagedObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A8531208C4DE90006074A /* ManagedObjectProtocol.swift */; };
+		352A8534208C4E870006074A /* ManagedObjectConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A8533208C4E870006074A /* ManagedObjectConvertible.swift */; };
+		352A8536208CD29F0006074A /* AmazonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A8535208CD29F0006074A /* AmazonViewController.swift */; };
+		352A8538208CD2B30006074A /* SafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A8537208CD2B30006074A /* SafariViewController.swift */; };
+		352A853A208CD6290006074A /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A8539208CD6290006074A /* Note.swift */; };
+		352A853C208CD8840006074A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A853B208CD8840006074A /* User.swift */; };
+		352A8541208CDA5C0006074A /* UserMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A853D208CDA5C0006074A /* UserMO+CoreDataClass.swift */; };
+		352A8542208CDA5C0006074A /* UserMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A853E208CDA5C0006074A /* UserMO+CoreDataProperties.swift */; };
+		352A8543208CDA5C0006074A /* NoteMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A853F208CDA5C0006074A /* NoteMO+CoreDataClass.swift */; };
+		352A8544208CDA5C0006074A /* NoteMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A8540208CDA5C0006074A /* NoteMO+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +52,16 @@
 		352A8526208C206B0006074A /* AuthorMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthorMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		352A8527208C206B0006074A /* BookMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		352A8528208C206B0006074A /* BookMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		352A8531208C4DE90006074A /* ManagedObjectProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedObjectProtocol.swift; sourceTree = "<group>"; };
+		352A8533208C4E870006074A /* ManagedObjectConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedObjectConvertible.swift; sourceTree = "<group>"; };
+		352A8535208CD29F0006074A /* AmazonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonViewController.swift; sourceTree = "<group>"; };
+		352A8537208CD2B30006074A /* SafariViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariViewController.swift; sourceTree = "<group>"; };
+		352A8539208CD6290006074A /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		352A853B208CD8840006074A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		352A853D208CDA5C0006074A /* UserMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		352A853E208CDA5C0006074A /* UserMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		352A853F208CDA5C0006074A /* NoteMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		352A8540208CDA5C0006074A /* NoteMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,13 +96,15 @@
 			children = (
 				352A8505208C18B60006074A /* AppDelegate.swift */,
 				352A8507208C18B60006074A /* ViewController.swift */,
+				352A8535208CD29F0006074A /* AmazonViewController.swift */,
+				352A8537208CD2B30006074A /* SafariViewController.swift */,
 				352A8509208C18B60006074A /* Main.storyboard */,
 				352A850F208C18B60006074A /* Assets.xcassets */,
 				352A8511208C18B60006074A /* LaunchScreen.storyboard */,
 				352A8514208C18B60006074A /* Info.plist */,
 				352A851B208C1A000006074A /* Struct Models */,
+				352A852F208C4C4F0006074A /* Core Data Service */,
 				352A851A208C19ED0006074A /* Core Data Models */,
-				352A850C208C18B60006074A /* StructCoreData.xcdatamodeld */,
 			);
 			path = StructCoreData;
 			sourceTree = "<group>";
@@ -90,12 +112,19 @@
 		352A851A208C19ED0006074A /* Core Data Models */ = {
 			isa = PBXGroup;
 			children = (
+				352A8531208C4DE90006074A /* ManagedObjectProtocol.swift */,
+				352A8533208C4E870006074A /* ManagedObjectConvertible.swift */,
+				352A853D208CDA5C0006074A /* UserMO+CoreDataClass.swift */,
+				352A853E208CDA5C0006074A /* UserMO+CoreDataProperties.swift */,
+				352A853F208CDA5C0006074A /* NoteMO+CoreDataClass.swift */,
+				352A8540208CDA5C0006074A /* NoteMO+CoreDataProperties.swift */,
 				352A8525208C206B0006074A /* AuthorMO+CoreDataClass.swift */,
 				352A8526208C206B0006074A /* AuthorMO+CoreDataProperties.swift */,
 				352A8527208C206B0006074A /* BookMO+CoreDataClass.swift */,
 				352A8528208C206B0006074A /* BookMO+CoreDataProperties.swift */,
 				352A8523208C206B0006074A /* StoreMO+CoreDataClass.swift */,
 				352A8524208C206B0006074A /* StoreMO+CoreDataProperties.swift */,
+				352A850C208C18B60006074A /* StructCoreData.xcdatamodeld */,
 			);
 			path = "Core Data Models";
 			sourceTree = "<group>";
@@ -106,8 +135,17 @@
 				352A851D208C1AB90006074A /* Author.swift */,
 				352A851F208C1AD20006074A /* Book.swift */,
 				352A8521208C1ADE0006074A /* Store.swift */,
+				352A8539208CD6290006074A /* Note.swift */,
+				352A853B208CD8840006074A /* User.swift */,
 			);
 			path = "Struct Models";
+			sourceTree = "<group>";
+		};
+		352A852F208C4C4F0006074A /* Core Data Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Core Data Service";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,15 +220,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				352A8536208CD29F0006074A /* AmazonViewController.swift in Sources */,
+				352A8534208C4E870006074A /* ManagedObjectConvertible.swift in Sources */,
 				352A852E208C206B0006074A /* BookMO+CoreDataProperties.swift in Sources */,
+				352A8544208CDA5C0006074A /* NoteMO+CoreDataProperties.swift in Sources */,
 				352A8508208C18B60006074A /* ViewController.swift in Sources */,
 				352A850E208C18B60006074A /* StructCoreData.xcdatamodeld in Sources */,
+				352A8543208CDA5C0006074A /* NoteMO+CoreDataClass.swift in Sources */,
+				352A853A208CD6290006074A /* Note.swift in Sources */,
 				352A851E208C1AB90006074A /* Author.swift in Sources */,
+				352A8532208C4DE90006074A /* ManagedObjectProtocol.swift in Sources */,
 				352A8529208C206B0006074A /* StoreMO+CoreDataClass.swift in Sources */,
 				352A8522208C1ADE0006074A /* Store.swift in Sources */,
 				352A8520208C1AD20006074A /* Book.swift in Sources */,
+				352A8538208CD2B30006074A /* SafariViewController.swift in Sources */,
 				352A852D208C206B0006074A /* BookMO+CoreDataClass.swift in Sources */,
 				352A852A208C206B0006074A /* StoreMO+CoreDataProperties.swift in Sources */,
+				352A853C208CD8840006074A /* User.swift in Sources */,
+				352A8541208CDA5C0006074A /* UserMO+CoreDataClass.swift in Sources */,
+				352A8542208CDA5C0006074A /* UserMO+CoreDataProperties.swift in Sources */,
 				352A852B208C206B0006074A /* AuthorMO+CoreDataClass.swift in Sources */,
 				352A852C208C206B0006074A /* AuthorMO+CoreDataProperties.swift in Sources */,
 				352A8506208C18B60006074A /* AppDelegate.swift in Sources */,

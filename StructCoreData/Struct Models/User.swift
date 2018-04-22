@@ -1,5 +1,5 @@
 //
-//  Author.swift
+//  User.swift
 //  StructCoreData
 //
 //  Created by Tong Tian on 22/04/2018.
@@ -8,21 +8,16 @@
 
 import Foundation
 
-struct Author {
+struct User {
     let uuid: String
-    var name: String?
+    var username: String?
     var email: String?
-    var birthday: Date?
-    var gender: Bool?
 }
 
-extension Author {
+extension User {
     init(id: String) {
         uuid = id
-        name = nil
+        username = nil
         email = nil
-        birthday = nil
-        gender = nil
     }
 }
-

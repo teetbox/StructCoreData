@@ -16,7 +16,7 @@ extension BookMO {
         return NSFetchRequest<BookMO>(entityName: "BookMO")
     }
 
-    @NSManaged public var uuid: String?
+    @NSManaged public var uuid: String
     @NSManaged public var title: String?
     @NSManaged public var publisher: String?
     @NSManaged public var price: Double

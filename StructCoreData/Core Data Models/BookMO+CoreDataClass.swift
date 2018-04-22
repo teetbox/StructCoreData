@@ -11,6 +11,26 @@ import Foundation
 import CoreData
 
 @objc(BookMO)
-public class BookMO: NSManagedObject {
+public class BookMO: NSManagedObject {}
 
+extension BookMO: ManagedObjectProtocol {
+    func toEntity() -> Book? {
+        var book = Book(id: uuid)
+        book.title = title
+        book.price = price
+        book.publisher = publisher
+        book.author = author?.toEntity()
+        return book
+    }
+}
+
+extension Book: ManagedObjectConvertible {
+    func toManagedObject(context: NSManagedObjectContext) -> BookMO? {
+        let book = BookMO.getOrCreate(withId: uuid, in: context)
+        book.title = title
+        book.price = price ?? 9.9
+        book.publisher = publisher
+        book.author = author?.toManagedObject(context: context)
+        return book
+    }
 }

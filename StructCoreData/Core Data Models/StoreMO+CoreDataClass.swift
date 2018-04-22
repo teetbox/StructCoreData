@@ -11,6 +11,28 @@ import Foundation
 import CoreData
 
 @objc(StoreMO)
-public class StoreMO: NSManagedObject {
+public class StoreMO: NSManagedObject {}
 
+extension StoreMO: ManagedObjectProtocol {
+    func toEntity() -> Store? {
+        var store = Store(id: uuid)
+        store.brand = brand
+        store.address = address
+        store.telephone = telephone
+        store.books = (books?.allObjects as? [BookMO])?.flatMap { $0.toEntity() }
+        return store
+    }
+}
+
+extension Store: ManagedObjectConvertible {
+    func toManagedObject(context: NSManagedObjectContext) -> StoreMO? {
+        let store = StoreMO.getOrCreate(withId: uuid, in: context)
+        store.brand = brand
+        store.address = address
+        store.telephone = telephone
+        if let books = books?.flatMap({ $0.toManagedObject(context: context) }) {
+            store.books = NSSet(array: books)
+        }
+        return store
+    }
 }

@@ -16,7 +16,7 @@ extension StoreMO {
         return NSFetchRequest<StoreMO>(entityName: "StoreMO")
     }
 
-    @NSManaged public var uuid: String?
+    @NSManaged public var uuid: String
     @NSManaged public var address: String?
     @NSManaged public var brand: String?
     @NSManaged public var telephone: String?

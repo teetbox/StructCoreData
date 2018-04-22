@@ -16,6 +16,13 @@
         <relationship name="author" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AuthorMO" inverseName="book" inverseEntity="AuthorMO" syncable="YES"/>
         <relationship name="store" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StoreMO" inverseName="books" inverseEntity="StoreMO" syncable="YES"/>
     </entity>
+    <entity name="NoteMO" representedClassName="NoteMO" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="updateDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserMO" inverseName="notes" inverseEntity="UserMO" syncable="YES"/>
+    </entity>
     <entity name="StoreMO" representedClassName="StoreMO" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="brand" optional="YES" attributeType="String" syncable="YES"/>
@@ -23,9 +30,17 @@
         <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="books" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BookMO" inverseName="store" inverseEntity="BookMO" syncable="YES"/>
     </entity>
+    <entity name="UserMO" representedClassName="UserMO" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="notes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NoteMO" inverseName="user" inverseEntity="NoteMO" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="AuthorMO" positionX="-63" positionY="-18" width="128" height="135"/>
-        <element name="BookMO" positionX="-54" positionY="-9" width="128" height="135"/>
-        <element name="StoreMO" positionX="-36" positionY="9" width="128" height="120"/>
+        <element name="AuthorMO" positionX="-189" positionY="-18" width="128" height="133"/>
+        <element name="BookMO" positionX="25" positionY="-18" width="128" height="133"/>
+        <element name="StoreMO" positionX="241" positionY="-18" width="128" height="120"/>
+        <element name="UserMO" positionX="45" positionY="63" width="128" height="105"/>
+        <element name="NoteMO" positionX="54" positionY="72" width="128" height="120"/>
     </elements>
 </model>

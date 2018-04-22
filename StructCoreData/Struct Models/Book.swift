@@ -10,9 +10,18 @@ import Foundation
 
 struct Book {
     let uuid: String
-    let author: Author
-    let title: String
-    let price: Double
-    let publisher: String
-    let store: Store
+    var title: String?
+    var price: Double?
+    var publisher: String?
+    var author: Author?
+}
+
+extension Book {
+    init(id: String) {
+        uuid = id
+        title = nil
+        price = nil
+        publisher = nil
+        author = nil
+    }
 }
