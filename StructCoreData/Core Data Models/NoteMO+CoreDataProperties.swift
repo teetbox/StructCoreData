@@ -21,5 +21,6 @@ extension NoteMO {
     @NSManaged public var createDate: Date?
     @NSManaged public var updateDate: Date?
     @NSManaged public var user: UserMO?
+    @NSManaged public var book: BookMO?
 
 }

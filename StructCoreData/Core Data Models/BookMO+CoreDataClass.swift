@@ -20,6 +20,7 @@ extension BookMO: ManagedObjectProtocol {
         book.price = price
         book.publisher = publisher
         book.author = author?.toEntity()
+        book.notes = (notes?.allObjects as? [NoteMO])?.flatMap { $0.toEntity() }
         return book
     }
 }
@@ -31,6 +32,9 @@ extension Book: ManagedObjectConvertible {
         book.price = price ?? 9.9
         book.publisher = publisher
         book.author = author?.toManagedObject(context: context)
+        if let notes = notes?.flatMap({ $0.toManagedObject(context: context) }) {
+            book.notes = NSSet(array: notes)
+        }
         return book
     }
 }

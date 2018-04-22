@@ -14,6 +14,7 @@ struct Book {
     var price: Double?
     var publisher: String?
     var author: Author?
+    var notes: [Note]?
 }
 
 extension Book {
@@ -23,5 +24,6 @@ extension Book {
         price = nil
         publisher = nil
         author = nil
+        notes = nil
     }
 }

@@ -23,3 +23,14 @@ extension NoteMO: ManagedObjectProtocol {
         return note
     }
 }
+
+extension Note: ManagedObjectConvertible {
+    func toManagedObject(context: NSManagedObjectContext) -> NoteMO? {
+        let note = NoteMO.getOrCreate(withId: uuid, in: context)
+        note.content = content
+        note.createDate = createDate
+        note.updateDate = updateDate
+        note.user = user?.toManagedObject(context: context)
+        return note
+    }
+}
