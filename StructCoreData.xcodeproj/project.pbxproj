@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		352A8506208C18B60006074A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A8505208C18B60006074A /* AppDelegate.swift */; };
-		352A8508208C18B60006074A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A8507208C18B60006074A /* ViewController.swift */; };
+		352A8508208C18B60006074A /* StoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A8507208C18B60006074A /* StoresViewController.swift */; };
 		352A850B208C18B60006074A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 352A8509208C18B60006074A /* Main.storyboard */; };
 		352A850E208C18B60006074A /* StructCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 352A850C208C18B60006074A /* StructCoreData.xcdatamodeld */; };
 		352A8510208C18B60006074A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 352A850F208C18B60006074A /* Assets.xcassets */; };
@@ -34,12 +34,16 @@
 		352A8544208CDA5C0006074A /* NoteMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A8540208CDA5C0006074A /* NoteMO+CoreDataProperties.swift */; };
 		C95E9E4D208D54B700667202 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E9E4C208D54B700667202 /* CoreDataManager.swift */; };
 		C95E9E4F208D569300667202 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E9E4E208D569300667202 /* Result.swift */; };
+		C95E9E51208D599B00667202 /* CoreDataWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E9E50208D599B00667202 /* CoreDataWorker.swift */; };
+		C95E9E53208D5FFD00667202 /* StoresDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E9E52208D5FFD00667202 /* StoresDataModel.swift */; };
+		C95E9E57208D737400667202 /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E9E56208D737400667202 /* BooksViewController.swift */; };
+		C95E9E59208D743B00667202 /* BooksDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E9E58208D743B00667202 /* BooksDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		352A8502208C18B60006074A /* StructCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StructCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		352A8505208C18B60006074A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		352A8507208C18B60006074A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		352A8507208C18B60006074A /* StoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoresViewController.swift; sourceTree = "<group>"; };
 		352A850A208C18B60006074A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		352A850D208C18B60006074A /* StructCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StructCoreData.xcdatamodel; sourceTree = "<group>"; };
 		352A850F208C18B60006074A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -66,6 +70,10 @@
 		352A8540208CDA5C0006074A /* NoteMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C95E9E4C208D54B700667202 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		C95E9E4E208D569300667202 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		C95E9E50208D599B00667202 /* CoreDataWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataWorker.swift; sourceTree = "<group>"; };
+		C95E9E52208D5FFD00667202 /* StoresDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoresDataModel.swift; sourceTree = "<group>"; };
+		C95E9E56208D737400667202 /* BooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewController.swift; sourceTree = "<group>"; };
+		C95E9E58208D743B00667202 /* BooksDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				352A8505208C18B60006074A /* AppDelegate.swift */,
-				352A8507208C18B60006074A /* ViewController.swift */,
-				352A8535208CD29F0006074A /* AmazonViewController.swift */,
-				352A8537208CD2B30006074A /* SafariViewController.swift */,
+				C95E9E54208D72F200667202 /* Stores */,
+				C95E9E55208D731300667202 /* Books */,
 				352A8509208C18B60006074A /* Main.storyboard */,
 				352A850F208C18B60006074A /* Assets.xcassets */,
 				352A8511208C18B60006074A /* LaunchScreen.storyboard */,
@@ -150,8 +157,29 @@
 			isa = PBXGroup;
 			children = (
 				C95E9E4C208D54B700667202 /* CoreDataManager.swift */,
+				C95E9E50208D599B00667202 /* CoreDataWorker.swift */,
 			);
 			path = "Core Data Service";
+			sourceTree = "<group>";
+		};
+		C95E9E54208D72F200667202 /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				352A8507208C18B60006074A /* StoresViewController.swift */,
+				C95E9E52208D5FFD00667202 /* StoresDataModel.swift */,
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
+		C95E9E55208D731300667202 /* Books */ = {
+			isa = PBXGroup;
+			children = (
+				352A8535208CD29F0006074A /* AmazonViewController.swift */,
+				352A8537208CD2B30006074A /* SafariViewController.swift */,
+				C95E9E56208D737400667202 /* BooksViewController.swift */,
+				C95E9E58208D743B00667202 /* BooksDataModel.swift */,
+			);
+			path = Books;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,12 +254,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C95E9E59208D743B00667202 /* BooksDataModel.swift in Sources */,
 				352A8536208CD29F0006074A /* AmazonViewController.swift in Sources */,
 				352A8534208C4E870006074A /* ManagedObjectConvertible.swift in Sources */,
 				352A852E208C206B0006074A /* BookMO+CoreDataProperties.swift in Sources */,
 				352A8544208CDA5C0006074A /* NoteMO+CoreDataProperties.swift in Sources */,
-				352A8508208C18B60006074A /* ViewController.swift in Sources */,
+				352A8508208C18B60006074A /* StoresViewController.swift in Sources */,
+				C95E9E53208D5FFD00667202 /* StoresDataModel.swift in Sources */,
+				C95E9E51208D599B00667202 /* CoreDataWorker.swift in Sources */,
 				352A850E208C18B60006074A /* StructCoreData.xcdatamodeld in Sources */,
+				C95E9E57208D737400667202 /* BooksViewController.swift in Sources */,
 				C95E9E4F208D569300667202 /* Result.swift in Sources */,
 				352A8543208CDA5C0006074A /* NoteMO+CoreDataClass.swift in Sources */,
 				352A853A208CD6290006074A /* Note.swift in Sources */,
