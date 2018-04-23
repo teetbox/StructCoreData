@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3502B25D208DF66800C3BECD /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3502B25C208DF66800C3BECD /* NotesViewController.swift */; };
+		3502B25F208DF69F00C3BECD /* NotesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3502B25E208DF69F00C3BECD /* NotesDataModel.swift */; };
+		3502B262208DF71D00C3BECD /* UIView+Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3502B261208DF71D00C3BECD /* UIView+Constraint.swift */; };
+		3502B264208E059700C3BECD /* NoteEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3502B263208E059700C3BECD /* NoteEditingViewController.swift */; };
 		352A8506208C18B60006074A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A8505208C18B60006074A /* AppDelegate.swift */; };
 		352A8508208C18B60006074A /* StoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A8507208C18B60006074A /* StoresViewController.swift */; };
 		352A850B208C18B60006074A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 352A8509208C18B60006074A /* Main.storyboard */; };
@@ -41,6 +45,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3502B25C208DF66800C3BECD /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		3502B25E208DF69F00C3BECD /* NotesDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesDataModel.swift; sourceTree = "<group>"; };
+		3502B261208DF71D00C3BECD /* UIView+Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraint.swift"; sourceTree = "<group>"; };
+		3502B263208E059700C3BECD /* NoteEditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditingViewController.swift; sourceTree = "<group>"; };
 		352A8502208C18B60006074A /* StructCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StructCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		352A8505208C18B60006074A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		352A8507208C18B60006074A /* StoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoresViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +95,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3502B25B208DF63000C3BECD /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				3502B25C208DF66800C3BECD /* NotesViewController.swift */,
+				3502B25E208DF69F00C3BECD /* NotesDataModel.swift */,
+				3502B263208E059700C3BECD /* NoteEditingViewController.swift */,
+			);
+			path = Notes;
+			sourceTree = "<group>";
+		};
+		3502B260208DF70000C3BECD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3502B261208DF71D00C3BECD /* UIView+Constraint.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		352A84F9208C18B60006074A = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +135,7 @@
 				352A8505208C18B60006074A /* AppDelegate.swift */,
 				C95E9E54208D72F200667202 /* Stores */,
 				C95E9E55208D731300667202 /* Books */,
+				3502B25B208DF63000C3BECD /* Notes */,
 				352A8509208C18B60006074A /* Main.storyboard */,
 				352A850F208C18B60006074A /* Assets.xcassets */,
 				352A8511208C18B60006074A /* LaunchScreen.storyboard */,
@@ -116,6 +143,7 @@
 				352A851B208C1A000006074A /* Struct Models */,
 				C95E9E4B208D52F400667202 /* Core Data Service */,
 				352A851A208C19ED0006074A /* Core Data Models */,
+				3502B260208DF70000C3BECD /* Extensions */,
 				C95E9E4E208D569300667202 /* Result.swift */,
 			);
 			path = StructCoreData;
@@ -257,10 +285,12 @@
 				C95E9E59208D743B00667202 /* BooksDataModel.swift in Sources */,
 				352A8536208CD29F0006074A /* AmazonViewController.swift in Sources */,
 				352A8534208C4E870006074A /* ManagedObjectConvertible.swift in Sources */,
+				3502B262208DF71D00C3BECD /* UIView+Constraint.swift in Sources */,
 				352A852E208C206B0006074A /* BookMO+CoreDataProperties.swift in Sources */,
 				352A8544208CDA5C0006074A /* NoteMO+CoreDataProperties.swift in Sources */,
 				352A8508208C18B60006074A /* StoresViewController.swift in Sources */,
 				C95E9E53208D5FFD00667202 /* StoresDataModel.swift in Sources */,
+				3502B25F208DF69F00C3BECD /* NotesDataModel.swift in Sources */,
 				C95E9E51208D599B00667202 /* CoreDataWorker.swift in Sources */,
 				352A850E208C18B60006074A /* StructCoreData.xcdatamodeld in Sources */,
 				C95E9E57208D737400667202 /* BooksViewController.swift in Sources */,
@@ -272,7 +302,9 @@
 				352A8532208C4DE90006074A /* ManagedObjectProtocol.swift in Sources */,
 				352A8529208C206B0006074A /* StoreMO+CoreDataClass.swift in Sources */,
 				352A8522208C1ADE0006074A /* Store.swift in Sources */,
+				3502B264208E059700C3BECD /* NoteEditingViewController.swift in Sources */,
 				352A8520208C1AD20006074A /* Book.swift in Sources */,
+				3502B25D208DF66800C3BECD /* NotesViewController.swift in Sources */,
 				352A8538208CD2B30006074A /* SafariViewController.swift in Sources */,
 				352A852D208C206B0006074A /* BookMO+CoreDataClass.swift in Sources */,
 				352A852A208C206B0006074A /* StoreMO+CoreDataProperties.swift in Sources */,
