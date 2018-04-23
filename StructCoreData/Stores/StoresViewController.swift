@@ -40,13 +40,14 @@ class StoresViewController: UIViewController {
     @IBAction func showAmazon(_ sender: UIButton) {
         let booksViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BooksViewController") as! BooksViewController
         booksViewController.navigationItem.title = "Amazon"
-//        booksViewController.dataModel.books = stores?[0].books
+        booksViewController.books = stores?[0].books
         navigationController?.pushViewController(booksViewController, animated: true)
     }
     
     @IBAction func showSafari(_ sender: UIButton) {
-        let booksViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BooksViewController")
+        let booksViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BooksViewController") as! BooksViewController
         booksViewController.navigationItem.title = "Safari"
+        booksViewController.books = stores?[1].books
         navigationController?.pushViewController(booksViewController, animated: true)
     }
     

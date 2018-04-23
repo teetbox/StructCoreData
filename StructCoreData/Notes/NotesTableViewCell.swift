@@ -44,16 +44,16 @@ class NotesTableViewCell: UITableViewCell {
     
     func setupViews() {
         addSubview(content)
-        addConstraints(format: "H:|-10-[v0]-10-|", views: content)
-        addConstraints(format: "V:|-5-[v0]", views: content)
+        addConstraints(format: "H:|-15-[v0]-15-|", views: content)
+        addConstraints(format: "V:|-10-[v0]", views: content)
         
         addSubview(username)
-        addConstraints(format: "H:|-10-[v0]", views: username)
+        addConstraints(format: "H:|-15-[v0]", views: username)
         addConstraints(format: "V:[v0]-5-|", views: username)
         username.topAnchor.constraint(equalTo: content.bottomAnchor, constant: 10).isActive = true
 
         addSubview(email)
-        addConstraints(format: "H:[v0]-10-|", views: email)
+        addConstraints(format: "H:[v0]-15-|", views: email)
         email.centerYAnchor.constraint(equalTo: username.centerYAnchor).isActive = true
     }
     

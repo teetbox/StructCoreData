@@ -19,7 +19,6 @@ class NotesViewController: UIViewController {
         view.backgroundColor = .white
         
         setupViews()
-        
         fetchNotes()
     }
     

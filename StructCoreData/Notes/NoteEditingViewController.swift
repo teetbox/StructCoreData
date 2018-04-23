@@ -24,7 +24,7 @@ class NoteEditingViewController: UIViewController {
         let label = UILabel()
         label.textAlignment = .right
         label.font = UIFont.systemFont(ofSize: 16)
-        label.text = "Content:"
+        label.text = "Note:"
         return label
     }()
     
@@ -36,12 +36,12 @@ class NoteEditingViewController: UIViewController {
     
     func setupViews() {
         view.addSubview(contentLabel)
-        view.addConstraints(format: "H:|-15-[v0]", views: contentLabel)
+        view.addConstraints(format: "H:|-18-[v0]", views: contentLabel)
         view.addConstraints(format: "V:[v0]", views: contentLabel)
         contentLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
         
         view.addSubview(contentTextField)
-        view.addConstraints(format: "H:|-15-[v0]-15-|", views: contentTextField)
+        view.addConstraints(format: "H:|-18-[v0]-18-|", views: contentTextField)
         view.addConstraints(format: "V:[v0(80)]", views: contentTextField)
         contentTextField.topAnchor.constraint(equalTo: contentLabel.bottomAnchor, constant: 10).isActive = true
     }

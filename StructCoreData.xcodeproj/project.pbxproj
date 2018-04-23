@@ -35,6 +35,7 @@
 		352A8542208CDA5C0006074A /* UserMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A853E208CDA5C0006074A /* UserMO+CoreDataProperties.swift */; };
 		352A8543208CDA5C0006074A /* NoteMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A853F208CDA5C0006074A /* NoteMO+CoreDataClass.swift */; };
 		352A8544208CDA5C0006074A /* NoteMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A8540208CDA5C0006074A /* NoteMO+CoreDataProperties.swift */; };
+		C93B12E7208EA4DF0021D526 /* BookEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B12E6208EA4DF0021D526 /* BookEditingViewController.swift */; };
 		C95E9E4D208D54B700667202 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E9E4C208D54B700667202 /* CoreDataManager.swift */; };
 		C95E9E4F208D569300667202 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E9E4E208D569300667202 /* Result.swift */; };
 		C95E9E51208D599B00667202 /* CoreDataWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E9E50208D599B00667202 /* CoreDataWorker.swift */; };
@@ -74,6 +75,7 @@
 		352A853E208CDA5C0006074A /* UserMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		352A853F208CDA5C0006074A /* NoteMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		352A8540208CDA5C0006074A /* NoteMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C93B12E6208EA4DF0021D526 /* BookEditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookEditingViewController.swift; sourceTree = "<group>"; };
 		C95E9E4C208D54B700667202 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		C95E9E4E208D569300667202 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		C95E9E50208D599B00667202 /* CoreDataWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataWorker.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 			children = (
 				C95E9E56208D737400667202 /* BooksViewController.swift */,
 				C95E9E58208D743B00667202 /* BooksDataModel.swift */,
+				C93B12E6208EA4DF0021D526 /* BookEditingViewController.swift */,
 			);
 			path = Books;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				352A8508208C18B60006074A /* StoresViewController.swift in Sources */,
 				C95E9E53208D5FFD00667202 /* StoresDataModel.swift in Sources */,
 				3502B25F208DF69F00C3BECD /* NotesDataModel.swift in Sources */,
+				C93B12E7208EA4DF0021D526 /* BookEditingViewController.swift in Sources */,
 				C95E9E51208D599B00667202 /* CoreDataWorker.swift in Sources */,
 				352A850E208C18B60006074A /* StructCoreData.xcdatamodeld in Sources */,
 				C95E9E57208D737400667202 /* BooksViewController.swift in Sources */,
@@ -301,7 +305,6 @@
 				3502B264208E059700C3BECD /* NoteEditingViewController.swift in Sources */,
 				352A8520208C1AD20006074A /* Book.swift in Sources */,
 				3502B25D208DF66800C3BECD /* NotesViewController.swift in Sources */,
-				352A8538208CD2B30006074A /* SafariViewController.swift in Sources */,
 				3502B266208E09DE00C3BECD /* NotesTableViewCell.swift in Sources */,
 				352A852D208C206B0006074A /* BookMO+CoreDataClass.swift in Sources */,
 				352A852A208C206B0006074A /* StoreMO+CoreDataProperties.swift in Sources */,
