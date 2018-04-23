@@ -8,6 +8,11 @@
 
 import Foundation
 
-class BooksDataModel {
+protocol BooksDataModelProtocol {
+    var books: [Book]? { get set }
+}
+
+class BooksDataModel: BooksDataModelProtocol {
+    var books: [Book]?
     
 }

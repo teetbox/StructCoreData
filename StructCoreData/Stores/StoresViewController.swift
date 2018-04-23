@@ -14,6 +14,7 @@ class StoresViewController: UIViewController {
     @IBOutlet weak var safariButton: UIButton!
     
     let dataModel: StoresDataModelProtocol = StoresDataModel()
+    var stores: [Store]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,8 @@ class StoresViewController: UIViewController {
     
     func fetchStores() {
         dataModel.fetchStores { stores in
+            self.stores = stores
+            
             guard let amazon = stores?[0].brand else { return }
             guard let safari = stores?[1].brand else { return }
             
@@ -33,6 +36,19 @@ class StoresViewController: UIViewController {
             self.safariButton.setTitle(safari, for: .normal)
         }
     }
-
+    
+    @IBAction func showAmazon(_ sender: UIButton) {
+        let booksViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BooksViewController") as! BooksViewController
+        booksViewController.navigationItem.title = "Amazon"
+//        booksViewController.dataModel.books = stores?[0].books
+        navigationController?.pushViewController(booksViewController, animated: true)
+    }
+    
+    @IBAction func showSafari(_ sender: UIButton) {
+        let booksViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BooksViewController")
+        booksViewController.navigationItem.title = "Safari"
+        navigationController?.pushViewController(booksViewController, animated: true)
+    }
+    
 }
 

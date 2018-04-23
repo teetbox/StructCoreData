@@ -24,8 +24,6 @@
 		352A852E208C206B0006074A /* BookMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A8528208C206B0006074A /* BookMO+CoreDataProperties.swift */; };
 		352A8532208C4DE90006074A /* ManagedObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A8531208C4DE90006074A /* ManagedObjectProtocol.swift */; };
 		352A8534208C4E870006074A /* ManagedObjectConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A8533208C4E870006074A /* ManagedObjectConvertible.swift */; };
-		352A8536208CD29F0006074A /* AmazonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A8535208CD29F0006074A /* AmazonViewController.swift */; };
-		352A8538208CD2B30006074A /* SafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A8537208CD2B30006074A /* SafariViewController.swift */; };
 		352A853A208CD6290006074A /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A8539208CD6290006074A /* Note.swift */; };
 		352A853C208CD8840006074A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A853B208CD8840006074A /* User.swift */; };
 		352A8541208CDA5C0006074A /* UserMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A853D208CDA5C0006074A /* UserMO+CoreDataClass.swift */; };
@@ -60,8 +58,6 @@
 		352A8528208C206B0006074A /* BookMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		352A8531208C4DE90006074A /* ManagedObjectProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedObjectProtocol.swift; sourceTree = "<group>"; };
 		352A8533208C4E870006074A /* ManagedObjectConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedObjectConvertible.swift; sourceTree = "<group>"; };
-		352A8535208CD29F0006074A /* AmazonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonViewController.swift; sourceTree = "<group>"; };
-		352A8537208CD2B30006074A /* SafariViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariViewController.swift; sourceTree = "<group>"; };
 		352A8539208CD6290006074A /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		352A853B208CD8840006074A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		352A853D208CDA5C0006074A /* UserMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserMO+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -174,8 +170,6 @@
 		C95E9E55208D731300667202 /* Books */ = {
 			isa = PBXGroup;
 			children = (
-				352A8535208CD29F0006074A /* AmazonViewController.swift */,
-				352A8537208CD2B30006074A /* SafariViewController.swift */,
 				C95E9E56208D737400667202 /* BooksViewController.swift */,
 				C95E9E58208D743B00667202 /* BooksDataModel.swift */,
 			);
@@ -255,7 +249,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C95E9E59208D743B00667202 /* BooksDataModel.swift in Sources */,
-				352A8536208CD29F0006074A /* AmazonViewController.swift in Sources */,
 				352A8534208C4E870006074A /* ManagedObjectConvertible.swift in Sources */,
 				352A852E208C206B0006074A /* BookMO+CoreDataProperties.swift in Sources */,
 				352A8544208CDA5C0006074A /* NoteMO+CoreDataProperties.swift in Sources */,
@@ -273,7 +266,6 @@
 				352A8529208C206B0006074A /* StoreMO+CoreDataClass.swift in Sources */,
 				352A8522208C1ADE0006074A /* Store.swift in Sources */,
 				352A8520208C1AD20006074A /* Book.swift in Sources */,
-				352A8538208CD2B30006074A /* SafariViewController.swift in Sources */,
 				352A852D208C206B0006074A /* BookMO+CoreDataClass.swift in Sources */,
 				352A852A208C206B0006074A /* StoreMO+CoreDataProperties.swift in Sources */,
 				352A853C208CD8840006074A /* User.swift in Sources */,
