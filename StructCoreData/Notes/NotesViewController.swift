@@ -10,6 +10,8 @@ import UIKit
 
 class NotesViewController: UIViewController {
     
+    let dataModel: NotesDataModelProtocol = NotesDataModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -17,6 +19,8 @@ class NotesViewController: UIViewController {
         view.backgroundColor = .white
         
         setupViews()
+        
+        fetchNotes()
     }
     
     let bookView: UIView = {
@@ -45,7 +49,8 @@ class NotesViewController: UIViewController {
         let table = UITableView()
         table.dataSource = self
         table.delegate = self
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        table.separatorStyle = .none
+        table.register(NotesTableViewCell.self, forCellReuseIdentifier: "Cell")
         return table
     }()
     
@@ -67,6 +72,12 @@ class NotesViewController: UIViewController {
         tableView.topAnchor.constraint(equalTo: bookView.bottomAnchor).isActive = true
     }
     
+    func fetchNotes() {
+        dataModel.fetchNotes { _ in
+            self.tableView.reloadData()
+        }
+    }
+    
     @objc func handleAdd() {
         let noteEditingViewController = NoteEditingViewController()
         let noteEditingNavigation = UINavigationController(rootViewController: noteEditingViewController)
@@ -78,12 +89,25 @@ class NotesViewController: UIViewController {
 extension NotesViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return dataModel.notes?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.backgroundColor = UIColor(white: 0.9, alpha: 1)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! NotesTableViewCell
+        
+        guard let note = dataModel.notes?[indexPath.row] else {
+            return cell
+        }
+        
+        cell.content.text = note.content
+        cell.username.text = note.user?.username
+        cell.email.text = note.user?.email
+        
+        if indexPath.row % 2 == 0 {
+            cell.backgroundColor = UIColor(white: 0.9, alpha: 1)
+        } else {
+            cell.backgroundColor = UIColor(white: 0.9, alpha: 0.3)
+        }
         return cell
     }
     
