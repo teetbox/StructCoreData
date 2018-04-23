@@ -155,6 +155,31 @@ class CoreDataManager {
         safariStore.addToBooks(functionalSwift)
         safariStore.addToBooks(coreData)
         
+        let userA = UserMO(context: viewContext)
+        userA.uuid = UUID().uuidString
+        userA.username = "User A"
+        userA.email = "a@user.com"
+        
+        let noteA = NoteMO(context: viewContext)
+        noteA.uuid = UUID().uuidString
+        noteA.content = "Core Data is cool"
+        noteA.createDate = Date()
+        noteA.user = userA
+        
+        let userB = UserMO(context: viewContext)
+        userB.uuid = UUID().uuidString
+        userB.username = "User B"
+        userB.email = "b@user.com"
+        
+        let noteB = NoteMO(context: viewContext)
+        noteB.uuid = UUID().uuidString
+        noteB.content = "Core Data could do the data persistency work, but it's power is more than that."
+        noteB.createDate = Date()
+        noteB.user = userB
+        
+        coreData.addToNotes(noteA)
+        coreData.addToNotes(noteB)
+        
         saveContext()
     }
     
