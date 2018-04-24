@@ -12,6 +12,7 @@ protocol NotesDataModelProtocol {
     var book: Book? { get set }
     var notes: [Note]? { get set }
     func fetchNotes(completion: @escaping ([Note]?) -> Void)
+    func insertNote(_ note: Note)
 }
 
 class NotesDataModel: NotesDataModelProtocol {
@@ -36,6 +37,10 @@ class NotesDataModel: NotesDataModelProtocol {
                 completion(nil)
             }
         }
+    }
+    
+    func insertNote(_ note: Note) {
+        
     }
     
 }

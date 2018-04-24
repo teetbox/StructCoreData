@@ -108,6 +108,8 @@ class NotesViewController: UIViewController {
     
     @objc func handleAdd() {
         let noteEditingViewController = NoteEditingViewController()
+        noteEditingViewController.book = book
+        
         let noteEditingNavigation = UINavigationController(rootViewController: noteEditingViewController)
         navigationController?.present(noteEditingNavigation, animated: true)
     }

@@ -10,6 +10,9 @@ import UIKit
 
 class NoteEditingViewController: UIViewController {
     
+    let dataModel: NotesDataModelProtocol = NotesDataModel()
+    var book: Book?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,8 +31,25 @@ class NoteEditingViewController: UIViewController {
         return label
     }()
     
-    let contentTextField: UITextField = {
+    let contentTextView: UITextView = {
+        let textView = UITextView()
+        textView.font = UIFont.systemFont(ofSize: 18.0)
+        textView.layer.borderColor = UIColor.lightGray.cgColor
+        textView.layer.borderWidth = 1.0
+        textView.layer.cornerRadius = 3
+        return textView
+    }()
+    
+    let usernameTextField: UITextField = {
         let textField = UITextField()
+        textField.placeholder = "Name"
+        textField.borderStyle = UITextBorderStyle.roundedRect
+        return textField
+    }()
+    
+    let emailTextField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Email"
         textField.borderStyle = UITextBorderStyle.roundedRect
         return textField
     }()
@@ -40,10 +60,20 @@ class NoteEditingViewController: UIViewController {
         view.addConstraints(format: "V:[v0]", views: contentLabel)
         contentLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
         
-        view.addSubview(contentTextField)
-        view.addConstraints(format: "H:|-18-[v0]-18-|", views: contentTextField)
-        view.addConstraints(format: "V:[v0(80)]", views: contentTextField)
-        contentTextField.topAnchor.constraint(equalTo: contentLabel.bottomAnchor, constant: 10).isActive = true
+        view.addSubview(contentTextView)
+        view.addConstraints(format: "H:|-18-[v0]-18-|", views: contentTextView)
+        view.addConstraints(format: "V:[v0(80)]", views: contentTextView)
+        contentTextView.topAnchor.constraint(equalTo: contentLabel.bottomAnchor, constant: 10).isActive = true
+        
+        view.addSubview(usernameTextField)
+        view.addConstraints(format: "H:|-18-[v0]-18-|", views: usernameTextField)
+        view.addConstraints(format: "V:[v0(44)]", views: usernameTextField)
+        usernameTextField.topAnchor.constraint(equalTo: contentTextView.bottomAnchor, constant: 40).isActive = true
+        
+        view.addSubview(emailTextField)
+        view.addConstraints(format: "H:|-18-[v0]-18-|", views: emailTextField)
+        view.addConstraints(format: "V:[v0(44)]", views: emailTextField)
+        emailTextField.topAnchor.constraint(equalTo: usernameTextField.bottomAnchor, constant: 20).isActive = true
     }
     
     @objc func handleCancel() {
@@ -51,6 +81,19 @@ class NoteEditingViewController: UIViewController {
     }
     
     @objc func handleDone() {
+        guard let content = contentTextView.text else { return }
+        guard let username = usernameTextField.text else { return }
+        guard let email = emailTextField.text else { return }
+        
+        if content == "" || username == "" || email == "" {
+            return
+        }
+        
+        let user = User(uuid: UUID().uuidString, username: username, email: email)
+        let note = Note(uuid: UUID().uuidString, content: content, createDate: Date(), updateDate: Date(), user: user)
+        
+        dataModel.insertNote(note)
+        
         dismiss(animated: true)
     }
     
