@@ -22,10 +22,15 @@ class NotesViewController: UIViewController {
         
         setupViews()
         
+        navigationItem.title = "\(book?.notes?.count ?? 0) notes"
         bookTitle.text = book?.title
         bookAuthor.text = book?.author?.name
         bookPublisher.text = book?.publisher
         bookPrice.text = "$\(book?.price ?? 0.0)"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         fetchNotes()
     }
@@ -108,6 +113,7 @@ class NotesViewController: UIViewController {
         dataModel.fetchNotes(forBookId: bookId) { notes in
             self.notes = notes
             self.tableView.reloadData()
+            self.navigationItem.title = "\(notes?.count ?? 0) notes"
         }
     }
     

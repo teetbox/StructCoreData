@@ -26,7 +26,7 @@ class NoteEditingDataModel: NoteEditingDataModelProtocol {
 
         var book = book
         book.notes = notes
-        
+
         worker.put(entities: [book]) { error in
             completion(error)
         }

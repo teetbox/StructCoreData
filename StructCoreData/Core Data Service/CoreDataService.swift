@@ -11,6 +11,8 @@ import CoreData
 
 protocol CoreDataServiceProtocol {
     
+    func convert<Entity: ManagedObjectConvertible>(entity: Entity) -> Entity.ManagedObject?
+    
     func get<Entity: ManagedObjectConvertible>(with predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]?, fetchLimit: Int?, completion: @escaping (Result<[Entity]>) -> Void)
     
     func put<Entity: ManagedObjectConvertible>(entities: [Entity], completion: @escaping (Error?) -> Void)
@@ -23,6 +25,11 @@ class CoreDataService: CoreDataServiceProtocol {
     
     init(coreData: CoreDataManager = CoreDataManager.shared) {
         self.coreData = coreData
+    }
+    
+    func convert<Entity>(entity: Entity) -> Entity.ManagedObject? where Entity : ManagedObjectConvertible {
+        let context = coreData.viewContext
+        return entity.toManagedObject(context: context)
     }
     
     func get<Entity>(with predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor]? = nil, fetchLimit: Int? = nil, completion: @escaping (Result<[Entity]>) -> Void) where Entity : ManagedObjectConvertible {

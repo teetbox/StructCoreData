@@ -11,6 +11,7 @@ import UIKit
 class BooksViewController: UIViewController {
     
     let dataModel: BooksDataModelProtocol = BooksDataModel()
+    var store: Store?
     var books: [Book]?
 
     @IBOutlet weak var tableView: UITableView!
@@ -26,6 +27,17 @@ class BooksViewController: UIViewController {
         
         if let index = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: index, animated: false)
+        }
+
+        fetchBooks()
+    }
+    
+    func fetchBooks() {
+        guard let storeId = store?.uuid else { return }
+        
+        dataModel.fetchBooks(forStoreId: storeId) { books in
+            self.books = books
+            self.tableView.reloadData()
         }
     }
     
