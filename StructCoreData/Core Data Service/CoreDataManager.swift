@@ -242,7 +242,7 @@ class CoreDataManager {
         
         let thePowerOfHabitNoteA = NoteMO(context: viewContext)
         thePowerOfHabitNoteA.uuid = UUID().uuidString
-        thePowerOfHabitNoteA.content = "Best seller for New York Times, Los Angeles Times, US Today ..."
+        thePowerOfHabitNoteA.content = "Best seller for New York Times, Los Angeles Times, US Today."
         thePowerOfHabitNoteA.createDate = Date()
         thePowerOfHabitNoteA.user = userB
         

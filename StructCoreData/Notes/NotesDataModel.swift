@@ -11,7 +11,7 @@ import Foundation
 protocol NotesDataModelProtocol {
     var book: Book? { get set }
     var notes: [Note]? { get set }
-    func fetchNotes(completion: @escaping ([Note]?) -> Void)
+    func fetchNotes(forBookId uuid: String, completion: @escaping ([Note]?) -> Void)
     func insertNote(_ note: Note)
 }
 
@@ -26,8 +26,9 @@ class NotesDataModel: NotesDataModelProtocol {
         self.worker = worker
     }
     
-    func fetchNotes(completion: @escaping ([Note]?) -> Void) {
-        worker.get { (result: Result<[Note]>) in
+    func fetchNotes(forBookId uuid: String, completion: @escaping ([Note]?) -> Void) {
+        let predicate = NSPredicate(format: "book.uuid = %@", uuid)
+        worker.get(with: predicate) { (result: Result<[Note]>) in
             switch result {
             case .success(let items):
                 self.notes = items
@@ -40,7 +41,11 @@ class NotesDataModel: NotesDataModelProtocol {
     }
     
     func insertNote(_ note: Note) {
-        
+        worker.update(entities: [note]) { error in
+            if let error = error {
+                NSLog("Insert note error: \(error)")
+            }
+        }
     }
     
 }

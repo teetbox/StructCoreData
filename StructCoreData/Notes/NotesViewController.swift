@@ -26,6 +26,8 @@ class NotesViewController: UIViewController {
         bookAuthor.text = book?.author?.name
         bookPublisher.text = book?.publisher
         bookPrice.text = "$\(book?.price ?? 0.0)"
+        
+        fetchNotes()
     }
     
     let bookView: UIView = {
@@ -101,7 +103,10 @@ class NotesViewController: UIViewController {
     }
     
     func fetchNotes() {
-        dataModel.fetchNotes { _ in
+        guard let bookId = book?.uuid else { return }
+        
+        dataModel.fetchNotes(forBookId: bookId) { notes in
+            self.notes = notes
             self.tableView.reloadData()
         }
     }

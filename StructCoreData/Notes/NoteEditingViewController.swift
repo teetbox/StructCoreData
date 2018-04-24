@@ -91,6 +91,7 @@ class NoteEditingViewController: UIViewController {
         
         let user = User(uuid: UUID().uuidString, username: username, email: email)
         let note = Note(uuid: UUID().uuidString, content: content, createDate: Date(), updateDate: Date(), user: user)
+        book?.notes?.append(note)
         
         dataModel.insertNote(note)
         
