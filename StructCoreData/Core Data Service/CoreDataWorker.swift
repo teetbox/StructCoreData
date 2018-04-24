@@ -44,7 +44,7 @@ class CoreDataWorker<ManagedObject, Entity>: CoreDataWorkerProtocol where Manage
     
     func update(entities: [Entity], completion: @escaping (Error?) -> Void) {
         coreData.performBackgroundTask { context in
-            entities.flatMap { (entity) -> ManagedObject? in
+            _ = entities.flatMap { (entity) -> ManagedObject? in
                 return entity.toManagedObject(context: context) as? ManagedObject
             }
             

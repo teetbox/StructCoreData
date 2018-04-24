@@ -10,7 +10,7 @@ import UIKit
 
 class NoteEditingViewController: UIViewController {
     
-    let dataModel: NotesDataModelProtocol = NotesDataModel()
+    let dataModel: NoteEditingDataModelProtocol = NoteEditingDataModel()
     var book: Book?
     
     override func viewDidLoad() {
@@ -91,11 +91,18 @@ class NoteEditingViewController: UIViewController {
         
         let user = User(uuid: UUID().uuidString, username: username, email: email)
         let note = Note(uuid: UUID().uuidString, content: content, createDate: Date(), updateDate: Date(), user: user)
-        book?.notes?.append(note)
         
-        dataModel.insertNote(note)
+        guard let book = book else { return }
         
-        dismiss(animated: true)
+        dataModel.save(note, for: book) { error in
+            if let error = error {
+                NSLog("Save note error: \(error)")
+                return
+            } else {
+                self.dismiss(animated: true)
+            }
+        }
+
     }
     
 }
