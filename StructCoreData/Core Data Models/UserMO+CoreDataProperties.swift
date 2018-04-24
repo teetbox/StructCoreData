@@ -2,7 +2,7 @@
 //  UserMO+CoreDataProperties.swift
 //  StructCoreData
 //
-//  Created by Tong Tian on 22/04/2018.
+//  Created by Matt Tian on 2018/4/24.
 //  Copyright © 2018 TeetBox. All rights reserved.
 //
 //
@@ -19,6 +19,23 @@ extension UserMO {
     @NSManaged public var uuid: String
     @NSManaged public var username: String?
     @NSManaged public var email: String?
-    @NSManaged public var notes: NoteMO?
+    @NSManaged public var notes: NSSet?
+
+}
+
+// MARK: Generated accessors for notes
+extension UserMO {
+
+    @objc(addNotesObject:)
+    @NSManaged public func addToNotes(_ value: NoteMO)
+
+    @objc(removeNotesObject:)
+    @NSManaged public func removeFromNotes(_ value: NoteMO)
+
+    @objc(addNotes:)
+    @NSManaged public func addToNotes(_ values: NSSet)
+
+    @objc(removeNotes:)
+    @NSManaged public func removeFromNotes(_ values: NSSet)
 
 }

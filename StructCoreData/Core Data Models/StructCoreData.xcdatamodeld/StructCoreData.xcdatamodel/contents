@@ -36,13 +36,13 @@
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="uuid" attributeType="String" syncable="YES"/>
-        <relationship name="notes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NoteMO" inverseName="user" inverseEntity="NoteMO" syncable="YES"/>
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NoteMO" inverseName="user" inverseEntity="NoteMO" syncable="YES"/>
     </entity>
     <elements>
         <element name="AuthorMO" positionX="-189" positionY="-18" width="128" height="133"/>
         <element name="BookMO" positionX="25" positionY="-18" width="128" height="148"/>
         <element name="NoteMO" positionX="-153" positionY="153" width="128" height="135"/>
         <element name="StoreMO" positionX="241" positionY="-18" width="128" height="118"/>
-        <element name="UserMO" positionX="27" positionY="183" width="128" height="105"/>
+        <element name="UserMO" positionX="27" positionY="183" width="128" height="103"/>
     </elements>
 </model>

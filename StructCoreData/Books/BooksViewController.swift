@@ -21,6 +21,14 @@ class BooksViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleAdd))
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let index = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: index, animated: false)
+        }
+    }
+    
     @objc func handleAdd() {
         let bookEditingViewController = BookEditingViewController()
         let bookEditingNavigation = UINavigationController(rootViewController: bookEditingViewController)
@@ -40,6 +48,18 @@ extension BooksViewController: UITableViewDataSource, UITableViewDelegate {
         cell.textLabel?.text = books?[indexPath.row].title
         cell.detailTextLabel?.text = books?[indexPath.row].author?.name
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let book = books?[indexPath.row] else {
+            return
+        }
+        
+        let notesViewController = NotesViewController()
+        notesViewController.book = book
+        notesViewController.notes = book.notes
+        
+        navigationController?.pushViewController(notesViewController, animated: true)
     }
     
 }

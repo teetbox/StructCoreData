@@ -11,6 +11,8 @@ import UIKit
 class NotesViewController: UIViewController {
     
     let dataModel: NotesDataModelProtocol = NotesDataModel()
+    var book: Book?
+    var notes: [Note]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +21,11 @@ class NotesViewController: UIViewController {
         view.backgroundColor = .white
         
         setupViews()
-        fetchNotes()
+        
+        bookTitle.text = book?.title
+        bookAuthor.text = book?.author?.name
+        bookPublisher.text = book?.publisher
+        bookPrice.text = "$\(book?.price ?? 0.0)"
     }
     
     let bookView: UIView = {
@@ -44,6 +50,24 @@ class NotesViewController: UIViewController {
         return label
     }()
     
+    let bookPublisher: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.text = "WordPress"
+        label.textColor = .darkGray
+        return label
+    }()
+    
+    let bookPrice: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .right
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.text = "$9.99"
+        label.textColor = .darkGray
+        return label
+    }()
+    
     lazy var tableView: UITableView = {
         let table = UITableView()
         table.dataSource = self
@@ -56,14 +80,19 @@ class NotesViewController: UIViewController {
     func setupViews() {
         view.addSubview(bookView)
         view.addConstraints(format: "H:|[v0]|", views: bookView)
-        view.addConstraints(format: "V:[v0(100)]", views: bookView)
+        view.addConstraints(format: "V:[v0(140)]", views: bookView)
         bookView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         
         bookView.addSubview(bookTitle)
         bookView.addSubview(bookAuthor)
-        bookView.addConstraints(format: "H:|-10-[v0]-10-|", views: bookTitle)
-        bookView.addConstraints(format: "H:|-10-[v0]-10-|", views: bookAuthor)
-        bookView.addConstraints(format: "V:|[v0(60)][v1(40)]|", views: bookTitle, bookAuthor)
+        bookView.addSubview(bookPublisher)
+        bookView.addSubview(bookPrice)
+        bookView.addConstraints(format: "H:|-15-[v0]-15-|", views: bookTitle)
+        bookView.addConstraints(format: "H:|-15-[v0]-15-|", views: bookAuthor)
+        bookView.addConstraints(format: "H:|-15-[v0]", views: bookPublisher)
+        bookView.addConstraints(format: "H:[v0]-15-|", views: bookPrice)
+        bookView.addConstraints(format: "V:|[v0(60)][v1(40)]-10-[v2(20)]-10-|", views: bookTitle, bookAuthor, bookPublisher)
+        bookPrice.centerYAnchor.constraint(equalTo: bookPublisher.centerYAnchor).isActive = true
         
         view.addSubview(tableView)
         view.addConstraints(format: "H:|[v0]|", views: tableView)
@@ -88,13 +117,13 @@ class NotesViewController: UIViewController {
 extension NotesViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataModel.notes?.count ?? 0
+        return notes?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! NotesTableViewCell
         
-        guard let note = dataModel.notes?[indexPath.row] else {
+        guard let note = notes?[indexPath.row] else {
             return cell
         }
         

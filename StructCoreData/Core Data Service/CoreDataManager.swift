@@ -102,14 +102,14 @@ class CoreDataManager {
         let smarterFasterBetter = BookMO(context: viewContext)
         smarterFasterBetter.uuid = UUID().uuidString
         smarterFasterBetter.title = "Smarter Faster Better"
-        smarterFasterBetter.price = 56.1
+        smarterFasterBetter.price = 10.55
         smarterFasterBetter.publisher = "Random House"
         smarterFasterBetter.author = charles
         
         let thePowerOfHabit = BookMO(context: viewContext)
         thePowerOfHabit.uuid = UUID().uuidString
         thePowerOfHabit.title = "The power of habit"
-        thePowerOfHabit.price = 69.7
+        thePowerOfHabit.price = 13.60
         thePowerOfHabit.publisher = "Random House"
         thePowerOfHabit.author = charles
         
@@ -126,14 +126,14 @@ class CoreDataManager {
         let advancedSwift = BookMO(context: viewContext)
         advancedSwift.uuid = UUID().uuidString
         advancedSwift.title = "Advanced Swift"
-        advancedSwift.price = 310.9
+        advancedSwift.price = 39.00
         advancedSwift.publisher = "Createspace Independent Pub"
         advancedSwift.author = chris
         
         let functionalSwift = BookMO(context: viewContext)
         functionalSwift.uuid = UUID().uuidString
         functionalSwift.title = "Functional Swift"
-        functionalSwift.price = 486
+        functionalSwift.price = 47.00
         functionalSwift.publisher = "Florian Kugler"
         functionalSwift.author = chris
         
@@ -147,7 +147,7 @@ class CoreDataManager {
         let coreData = BookMO(context: viewContext)
         coreData.uuid = UUID().uuidString
         coreData.title = "Core Data"
-        coreData.price = 310.9
+        coreData.price = 39.00
         coreData.publisher = "Createspace Independent Pub"
         coreData.author = florian
         
@@ -160,25 +160,100 @@ class CoreDataManager {
         userA.username = "User A"
         userA.email = "a@user.com"
         
-        let noteA = NoteMO(context: viewContext)
-        noteA.uuid = UUID().uuidString
-        noteA.content = "Core Data is cool"
-        noteA.createDate = Date()
-        noteA.user = userA
-        
         let userB = UserMO(context: viewContext)
         userB.uuid = UUID().uuidString
         userB.username = "User B"
         userB.email = "b@user.com"
         
-        let noteB = NoteMO(context: viewContext)
-        noteB.uuid = UUID().uuidString
-        noteB.content = "Core Data could do the data persistency work, but it's power is more than that."
-        noteB.createDate = Date()
-        noteB.user = userB
+        let userC = UserMO(context: viewContext)
+        userC.uuid = UUID().uuidString
+        userC.username = "User C"
+        userC.email = "c@user.com"
         
-        coreData.addToNotes(noteA)
-        coreData.addToNotes(noteB)
+        let userD = UserMO(context: viewContext)
+        userD.uuid = UUID().uuidString
+        userD.username = "User D"
+        userD.email = "d@user.com"
+        
+        let userE = UserMO(context: viewContext)
+        userE.uuid = UUID().uuidString
+        userE.username = "User E"
+        userE.email = "e@user.com"
+        
+        let coreDataNoteA = NoteMO(context: viewContext)
+        coreDataNoteA.uuid = UUID().uuidString
+        coreDataNoteA.content = "Core Data is cool"
+        coreDataNoteA.createDate = Date()
+        coreDataNoteA.user = userA
+        
+        let coreDataNoteB = NoteMO(context: viewContext)
+        coreDataNoteB.uuid = UUID().uuidString
+        coreDataNoteB.content = "Core Data could do the data persistency work, but it's power is more than that."
+        coreDataNoteB.createDate = Date()
+        coreDataNoteB.user = userB
+        
+        let coreDataNoteC = NoteMO(context: viewContext)
+        coreDataNoteC.uuid = UUID().uuidString
+        coreDataNoteC.content = "I like to use Core Data, but I want my models are value typed."
+        coreDataNoteC.createDate = Date()
+        coreDataNoteC.user = userA
+        
+        coreData.addToNotes(coreDataNoteA)
+        coreData.addToNotes(coreDataNoteB)
+        coreData.addToNotes(coreDataNoteC)
+        
+        let functionalSwiftNoteA = NoteMO(context: viewContext)
+        functionalSwiftNoteA.uuid = UUID().uuidString
+        functionalSwiftNoteA.content = "Swift language supports functional programming."
+        functionalSwiftNoteA.createDate = Date()
+        functionalSwiftNoteA.user = userA
+        
+        let functionalSwiftNoteB = NoteMO(context: viewContext)
+        functionalSwiftNoteB.uuid = UUID().uuidString
+        functionalSwiftNoteB.content = "This is the advanced feature in Swift."
+        functionalSwiftNoteB.createDate = Date()
+        functionalSwiftNoteB.user = userB
+        
+        functionalSwift.addToNotes(functionalSwiftNoteA)
+        functionalSwift.addToNotes(functionalSwiftNoteB)
+        
+        let advancedSwiftNoteA = NoteMO(context: viewContext)
+        advancedSwiftNoteA.uuid = UUID().uuidString
+        advancedSwiftNoteA.content = "Talk about advanced concepts in Swift programming."
+        advancedSwiftNoteA.createDate = Date()
+        advancedSwiftNoteA.user = userC
+        
+        advancedSwift.addToNotes(advancedSwiftNoteA)
+        
+        let smarterFasterBetterNoteA = NoteMO(context: viewContext)
+        smarterFasterBetterNoteA.uuid = UUID().uuidString
+        smarterFasterBetterNoteA.content = "Charles Duhigg is a good journalist. I enjoyed reading this book. It's inspiring and insightful."
+        smarterFasterBetterNoteA.createDate = Date()
+        smarterFasterBetterNoteA.user = userE
+        
+        let smarterFasterBetterNoteB = NoteMO(context: viewContext)
+        smarterFasterBetterNoteB.uuid = UUID().uuidString
+        smarterFasterBetterNoteB.content = "This is a book about how to become smarter, faster, and better at everything you do."
+        smarterFasterBetterNoteB.createDate = Date()
+        smarterFasterBetterNoteB.user = userD
+        
+        smarterFasterBetter.addToNotes(smarterFasterBetterNoteA)
+        smarterFasterBetter.addToNotes(smarterFasterBetterNoteB)
+        
+        let thePowerOfHabitNoteA = NoteMO(context: viewContext)
+        thePowerOfHabitNoteA.uuid = UUID().uuidString
+        thePowerOfHabitNoteA.content = "Best seller for New York Times, Los Angeles Times, US Today ..."
+        thePowerOfHabitNoteA.createDate = Date()
+        thePowerOfHabitNoteA.user = userB
+        
+        let thePowerOfHabitNoteB = NoteMO(context: viewContext)
+        thePowerOfHabitNoteB.uuid = UUID().uuidString
+        thePowerOfHabitNoteB.content = "This book helps us understand how habits are formed and how we can use them to our benefit, change them when we need to and replace them when necessary."
+        thePowerOfHabitNoteB.createDate = Date()
+        thePowerOfHabitNoteB.user = userD
+        
+        thePowerOfHabit.addToNotes(thePowerOfHabitNoteA)
+        thePowerOfHabit.addToNotes(thePowerOfHabitNoteB)
         
         saveContext()
     }
