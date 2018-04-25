@@ -11,25 +11,22 @@ import CoreData
 
 protocol CoreDataServiceProtocol {
     
-    func convert<Entity: ManagedObjectConvertible>(entity: Entity) -> Entity.ManagedObject?
-    
     func get<Entity: ManagedObjectConvertible>(with predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]?, fetchLimit: Int?, completion: @escaping (Result<[Entity]>) -> Void)
     
-    func put<Entity: ManagedObjectConvertible>(entities: [Entity], completion: @escaping (Error?) -> Void)
+    func create<Entity: ManagedObjectConvertible>(enitity: [Entity], completion: @escaping (Error?) -> Void)
+    
+    func update<Entity: ManagedObjectConvertible>(entities: [Entity], completion: @escaping (Error?) -> Void)
+    
+    func delete<Entity: ManagedObjectConvertible>(entities: [Entity], completion: @escaping (Error?) -> Void)
     
 }
 
 class CoreDataService: CoreDataServiceProtocol {
-    
+
     let coreData: CoreDataManager
     
     init(coreData: CoreDataManager = CoreDataManager.shared) {
         self.coreData = coreData
-    }
-    
-    func convert<Entity>(entity: Entity) -> Entity.ManagedObject? where Entity : ManagedObjectConvertible {
-        let context = coreData.viewContext
-        return entity.toManagedObject(context: context)
     }
     
     func get<Entity>(with predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor]? = nil, fetchLimit: Int? = nil, completion: @escaping (Result<[Entity]>) -> Void) where Entity : ManagedObjectConvertible {
@@ -53,7 +50,11 @@ class CoreDataService: CoreDataServiceProtocol {
         }
     }
     
-    func put<Entity>(entities: [Entity], completion: @escaping (Error?) -> Void) where Entity : ManagedObjectConvertible {
+    func create<Entity>(enitity: [Entity], completion: @escaping (Error?) -> Void) where Entity : ManagedObjectConvertible {
+        
+    }
+    
+    func update<Entity>(entities: [Entity], completion: @escaping (Error?) -> Void) where Entity : ManagedObjectConvertible {
         
         coreData.performBackgroundTask { context in
             _ = entities.flatMap { $0.toManagedObject(context: context) }
@@ -66,6 +67,10 @@ class CoreDataService: CoreDataServiceProtocol {
                 completion(error)
             }
         }
+    }
+    
+    func delete<Entity>(entities: [Entity], completion: @escaping (Error?) -> Void) where Entity : ManagedObjectConvertible {
+        
     }
     
 }
