@@ -14,10 +14,10 @@ protocol NoteEditingDataModelProtocol {
 
 class NoteEditingDataModel: NoteEditingDataModelProtocol {
 
-    let worker: CoreDataServiceProtocol
+    let dataEngine: CoreDataServiceProtocol
     
-    init(worker: CoreDataServiceProtocol = CoreDataEngine()) {
-        self.worker = worker
+    init(dateEngine: CoreDataServiceProtocol = CoreDataEngine()) {
+        self.dataEngine = dateEngine
     }
     
     func save(_ note: Note, for book: Book, completion: @escaping (Error?) -> Void) {
@@ -27,7 +27,7 @@ class NoteEditingDataModel: NoteEditingDataModelProtocol {
         var book = book
         book.notes = notes
 
-        worker.update(entities: [book]) { error in
+        dataEngine.update(entities: [book]) { error in
             completion(error)
         }
     }
