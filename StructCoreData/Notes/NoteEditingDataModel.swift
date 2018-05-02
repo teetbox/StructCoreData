@@ -16,7 +16,7 @@ class NoteEditingDataModel: NoteEditingDataModelProtocol {
 
     let worker: CoreDataServiceProtocol
     
-    init(worker: CoreDataServiceProtocol = CoreDataService()) {
+    init(worker: CoreDataServiceProtocol = CoreDataEngine()) {
         self.worker = worker
     }
     

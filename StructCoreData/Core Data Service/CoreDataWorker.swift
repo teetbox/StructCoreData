@@ -59,16 +59,3 @@ class CoreDataWorker<ManagedObject, Entity>: CoreDataWorkerProtocol where Manage
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

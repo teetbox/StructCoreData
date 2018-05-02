@@ -124,12 +124,6 @@ class NotesViewController: UIViewController {
             self.tableView.reloadData()
             self.navigationItem.title = "\(self.notes?.count ?? 0) notes"
         }
-        
-//        dataModel.fetchNotes(forBookId: bookId) { notes in
-//            self.notes = notes
-//            self.tableView.reloadData()
-//            self.navigationItem.title = "\(notes?.count ?? 0) notes"
-//        }
     }
     
     @objc func handleAdd() {
@@ -165,6 +159,17 @@ extension NotesViewController: UITableViewDataSource, UITableViewDelegate {
             cell.backgroundColor = UIColor(white: 0.9, alpha: 0.3)
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            guard let note = notes?.remove(at: indexPath.row) else { return }
+            
+            // Update book's notes state
+            book?.notes = notes
+            dataModel.deleteNote(note: note, completion: { _ in })
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
     
 }

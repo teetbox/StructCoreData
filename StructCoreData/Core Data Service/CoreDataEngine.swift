@@ -27,7 +27,7 @@ extension CoreDataServiceProtocol {
     }
 }
 
-class CoreDataService: CoreDataServiceProtocol {
+class CoreDataEngine: CoreDataServiceProtocol {
 
     let coreData: CoreDataManager
     
@@ -77,6 +77,21 @@ class CoreDataService: CoreDataServiceProtocol {
     
     func delete<Entity>(entities: [Entity], completion: @escaping (Error?) -> Void) where Entity : ManagedObjectConvertible {
         
+        coreData.performBackgroundTask { context in
+            let objects = entities.flatMap { $0.toManagedObject(context: context) }
+            
+            for object in objects {
+                context.delete(object)
+            }
+            
+            do {
+                try context.save()
+                completion(nil)
+            } catch {
+                NSLog("Core Data delete error: \(error)")
+                completion(error)
+            }
+        }
     }
     
 }

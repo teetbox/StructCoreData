@@ -12,27 +12,24 @@ protocol NotesDataModelProtocol {
     var book: Book? { get set }
     var notes: [Note]? { get set }
     func fetchBook(uuid: String, completion: @escaping (Book?) -> Void)
-    func fetchNotes(forBookId uuid: String, completion: @escaping ([Note]?) -> Void)
-    func insertNote(_ note: Note)
+    func deleteNote(note: Note, completion: @escaping (Error?) -> Void)
 }
 
 class NotesDataModel: NotesDataModelProtocol {
-    
-    let worker: CoreDataWorker<NoteMO, Note>
-    let service: CoreDataServiceProtocol
+
+    let dataEngine: CoreDataServiceProtocol
     
     var book: Book?
     var notes: [Note]?
     
-    init(worker: CoreDataWorker<NoteMO, Note> = CoreDataWorker<NoteMO, Note>()) {
-        self.worker = worker
-        self.service = CoreDataService()
+    init(dataEngine: CoreDataServiceProtocol = CoreDataEngine()) {
+        self.dataEngine = dataEngine
     }
     
     func fetchBook(uuid: String, completion: @escaping (Book?) -> Void) {
         let predicate = NSPredicate(format: "uuid = %@", uuid)
         
-        service.get(with: predicate) { (result: Result<[Book]>) in
+        dataEngine.get(with: predicate) { (result: Result<[Book]>) in
             switch result {
             case .success(let items):
                 self.book = items.first
@@ -44,24 +41,13 @@ class NotesDataModel: NotesDataModelProtocol {
         }
     }
     
-    func fetchNotes(forBookId uuid: String, completion: @escaping ([Note]?) -> Void) {
-        let predicate = NSPredicate(format: "book.uuid = %@", uuid)
-        worker.get(with: predicate) { (result: Result<[Note]>) in
-            switch result {
-            case .success(let items):
-                self.notes = items
-                completion(items)
-            case .failure(let error):
-                NSLog("Fetch notes error: \(error)")
-                completion(nil)
-            }
-        }
-    }
-    
-    func insertNote(_ note: Note) {
-        worker.update(entities: [note]) { error in
+    func deleteNote(note: Note, completion: @escaping (Error?) -> Void) {
+        dataEngine.delete(entities: [note]) { error in
             if let error = error {
-                NSLog("Insert note error: \(error)")
+                NSLog("Delete note error: \(error)")
+                completion(error)
+            } else {
+                completion(nil)
             }
         }
     }
