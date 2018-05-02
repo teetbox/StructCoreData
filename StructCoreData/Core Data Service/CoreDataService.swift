@@ -21,6 +21,12 @@ protocol CoreDataServiceProtocol {
     
 }
 
+extension CoreDataServiceProtocol {
+    func get<Entity: ManagedObjectConvertible>(with predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]? = nil, fetchLimit: Int? = nil, completion: @escaping (Result<[Entity]>) -> Void) {
+        get(with: predicate, sortDescriptors: sortDescriptors, fetchLimit: fetchLimit, completion: completion)
+    }
+}
+
 class CoreDataService: CoreDataServiceProtocol {
 
     let coreData: CoreDataManager

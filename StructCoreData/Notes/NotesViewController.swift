@@ -12,7 +12,15 @@ class NotesViewController: UIViewController {
     
     let dataModel: NotesDataModelProtocol = NotesDataModel()
     var book: Book?
-    var notes: [Note]?
+    var notes: [Note]? {
+        didSet {
+            guard let noteSet = notes else {
+                return
+            }
+            
+            notes = noteSet.sorted { $0.createDate! > $1.createDate! }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,11 +118,18 @@ class NotesViewController: UIViewController {
     func fetchNotes() {
         guard let bookId = book?.uuid else { return }
         
-        dataModel.fetchNotes(forBookId: bookId) { notes in
-            self.notes = notes
+        dataModel.fetchBook(uuid: bookId) { book in
+            self.book = book
+            self.notes = book?.notes
             self.tableView.reloadData()
-            self.navigationItem.title = "\(notes?.count ?? 0) notes"
+            self.navigationItem.title = "\(self.notes?.count ?? 0) notes"
         }
+        
+//        dataModel.fetchNotes(forBookId: bookId) { notes in
+//            self.notes = notes
+//            self.tableView.reloadData()
+//            self.navigationItem.title = "\(notes?.count ?? 0) notes"
+//        }
     }
     
     @objc func handleAdd() {
