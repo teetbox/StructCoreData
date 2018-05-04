@@ -167,6 +167,7 @@ extension NotesViewController: UITableViewDataSource, UITableViewDelegate {
             
             // Update book's notes state
             book?.notes = notes
+            self.navigationItem.title = "\(notes?.count ?? 0) notes"
             dataModel.deleteNote(note: note, completion: { _ in })
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
