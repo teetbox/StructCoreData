@@ -35,7 +35,7 @@ extension ManagedObjectProtocol where Self: NSManagedObject {
         return Self(context: context)
     }
     
-    static func fetch(from content: NSManagedObjectContext, with predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]?, fetchLimit: Int?) -> [Self]? {
+    static func fetch(from context: NSManagedObjectContext, with predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]?, fetchLimit: Int?) -> [Self]? {
         let fetchRequest = Self.fetchRequest()
         fetchRequest.predicate = predicate
         fetchRequest.sortDescriptors = sortDescriptors
@@ -46,9 +46,9 @@ extension ManagedObjectProtocol where Self: NSManagedObject {
         }
         
         var result: [Self]?
-        content.performAndWait { () -> Void in
+        context.performAndWait { () -> Void in
             do {
-                result = try content.fetch(fetchRequest) as? [Self]
+                result = try context.fetch(fetchRequest) as? [Self]
             } catch {
                 result = nil
                 NSLog("Core Data fetch error: \(error)")
