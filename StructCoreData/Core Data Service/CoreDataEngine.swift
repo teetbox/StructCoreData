@@ -11,7 +11,7 @@ import CoreData
 
 protocol CoreDataServiceProtocol {
     
-    func get<Entity: ManagedObjectConvertible>(with predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]?, fetchLimit: Int?, completion: @escaping (Result<[Entity]>) -> Void)
+    func fetch<Entity: ManagedObjectConvertible>(with predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]?, fetchLimit: Int?, completion: @escaping (Result<[Entity]>) -> Void)
     
     func create<Entity: ManagedObjectConvertible>(enitity: [Entity], completion: @escaping (Error?) -> Void)
     
@@ -22,8 +22,8 @@ protocol CoreDataServiceProtocol {
 }
 
 extension CoreDataServiceProtocol {
-    func get<Entity: ManagedObjectConvertible>(with predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]? = nil, fetchLimit: Int? = nil, completion: @escaping (Result<[Entity]>) -> Void) {
-        get(with: predicate, sortDescriptors: sortDescriptors, fetchLimit: fetchLimit, completion: completion)
+    func fetch<Entity: ManagedObjectConvertible>(with predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]? = nil, fetchLimit: Int? = nil, completion: @escaping (Result<[Entity]>) -> Void) {
+        fetch(with: predicate, sortDescriptors: sortDescriptors, fetchLimit: fetchLimit, completion: completion)
     }
 }
 
@@ -35,7 +35,7 @@ class CoreDataEngine: CoreDataServiceProtocol {
         self.coreData = coreData
     }
     
-    func get<Entity>(with predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor]? = nil, fetchLimit: Int? = nil, completion: @escaping (Result<[Entity]>) -> Void) where Entity : ManagedObjectConvertible {
+    func fetch<Entity>(with predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor]? = nil, fetchLimit: Int? = nil, completion: @escaping (Result<[Entity]>) -> Void) where Entity : ManagedObjectConvertible {
         
         coreData.performForegroundTask { context in
             do {

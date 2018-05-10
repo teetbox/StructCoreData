@@ -10,9 +10,7 @@ import UIKit
 
 class BooksViewController: UIViewController {
     
-    let dataModel: BooksDataModelProtocol = BooksDataModel()
-    var store: Store?
-    var books: [Book]?
+    var viewModel: BooksViewModel!
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -33,12 +31,16 @@ class BooksViewController: UIViewController {
     }
     
     func fetchBooks() {
-        guard let storeId = store?.uuid else { return }
-        
-        dataModel.fetchBooks(forStoreId: storeId) { books in
-            self.books = books
+        viewModel.loadData() {
             self.tableView.reloadData()
         }
+    }
+    
+    func reloadBooks() {
+        let contentOffset = tableView.contentOffset
+        tableView.reloadData()
+        tableView.layoutIfNeeded()
+        tableView.setContentOffset(contentOffset, animated: false)
     }
     
     @objc func handleAdd() {
@@ -52,18 +54,18 @@ class BooksViewController: UIViewController {
 extension BooksViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return books?.count ?? 0
+        return viewModel.books?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = books?[indexPath.row].title
-        cell.detailTextLabel?.text = books?[indexPath.row].author?.name
+        cell.textLabel?.text = viewModel.books?[indexPath.row].title
+        cell.detailTextLabel?.text = viewModel.books?[indexPath.row].author?.name
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let book = books?[indexPath.row] else {
+        guard let book = viewModel.books?[indexPath.row] else {
             return
         }
         

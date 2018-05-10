@@ -37,6 +37,9 @@
 		352A8544208CDA5C0006074A /* NoteMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A8540208CDA5C0006074A /* NoteMO+CoreDataProperties.swift */; };
 		3557C31B208F451000013B0D /* CoreDataEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557C31A208F451000013B0D /* CoreDataEngine.swift */; };
 		3557C31E208F4AF300013B0D /* NoteEditingDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557C31D208F4AF300013B0D /* NoteEditingDataModel.swift */; };
+		C934FBFB20A3D1E700F2C58B /* BooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C934FBFA20A3D1E700F2C58B /* BooksViewModel.swift */; };
+		C934FBFD20A3D50600F2C58B /* BooksCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C934FBFC20A3D50600F2C58B /* BooksCoordinator.swift */; };
+		C934FBFF20A3D76100F2C58B /* UIApplication+TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C934FBFE20A3D76100F2C58B /* UIApplication+TopView.swift */; };
 		C93B12E7208EA4DF0021D526 /* BookEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B12E6208EA4DF0021D526 /* BookEditingViewController.swift */; };
 		C95E9E4D208D54B700667202 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E9E4C208D54B700667202 /* CoreDataManager.swift */; };
 		C95E9E4F208D569300667202 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E9E4E208D569300667202 /* Result.swift */; };
@@ -79,6 +82,9 @@
 		352A8540208CDA5C0006074A /* NoteMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3557C31A208F451000013B0D /* CoreDataEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataEngine.swift; sourceTree = "<group>"; };
 		3557C31D208F4AF300013B0D /* NoteEditingDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditingDataModel.swift; sourceTree = "<group>"; };
+		C934FBFA20A3D1E700F2C58B /* BooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewModel.swift; sourceTree = "<group>"; };
+		C934FBFC20A3D50600F2C58B /* BooksCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksCoordinator.swift; sourceTree = "<group>"; };
+		C934FBFE20A3D76100F2C58B /* UIApplication+TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+TopView.swift"; sourceTree = "<group>"; };
 		C93B12E6208EA4DF0021D526 /* BookEditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookEditingViewController.swift; sourceTree = "<group>"; };
 		C95E9E4C208D54B700667202 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		C95E9E4E208D569300667202 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
@@ -116,6 +122,7 @@
 			children = (
 				C95E9E4E208D569300667202 /* Result.swift */,
 				3502B261208DF71D00C3BECD /* UIView+Constraint.swift */,
+				C934FBFE20A3D76100F2C58B /* UIApplication+TopView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -217,8 +224,10 @@
 		C95E9E55208D731300667202 /* Books */ = {
 			isa = PBXGroup;
 			children = (
-				C95E9E56208D737400667202 /* BooksViewController.swift */,
+				C934FBFC20A3D50600F2C58B /* BooksCoordinator.swift */,
+				C934FBFA20A3D1E700F2C58B /* BooksViewModel.swift */,
 				C95E9E58208D743B00667202 /* BooksDataModel.swift */,
+				C95E9E56208D737400667202 /* BooksViewController.swift */,
 				C93B12E6208EA4DF0021D526 /* BookEditingViewController.swift */,
 			);
 			path = Books;
@@ -299,6 +308,8 @@
 				C95E9E59208D743B00667202 /* BooksDataModel.swift in Sources */,
 				352A8534208C4E870006074A /* ManagedObjectConvertible.swift in Sources */,
 				3502B262208DF71D00C3BECD /* UIView+Constraint.swift in Sources */,
+				C934FBFB20A3D1E700F2C58B /* BooksViewModel.swift in Sources */,
+				C934FBFF20A3D76100F2C58B /* UIApplication+TopView.swift in Sources */,
 				352A852E208C206B0006074A /* BookMO+CoreDataProperties.swift in Sources */,
 				352A8544208CDA5C0006074A /* NoteMO+CoreDataProperties.swift in Sources */,
 				352A8508208C18B60006074A /* StoresViewController.swift in Sources */,
@@ -322,6 +333,7 @@
 				352A8520208C1AD20006074A /* Book.swift in Sources */,
 				3502B25D208DF66800C3BECD /* NotesViewController.swift in Sources */,
 				3502B266208E09DE00C3BECD /* NotesTableViewCell.swift in Sources */,
+				C934FBFD20A3D50600F2C58B /* BooksCoordinator.swift in Sources */,
 				352A852D208C206B0006074A /* BookMO+CoreDataClass.swift in Sources */,
 				352A852A208C206B0006074A /* StoreMO+CoreDataProperties.swift in Sources */,
 				352A853C208CD8840006074A /* User.swift in Sources */,

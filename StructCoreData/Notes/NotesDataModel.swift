@@ -29,7 +29,7 @@ class NotesDataModel: NotesDataModelProtocol {
     func fetchBook(uuid: String, completion: @escaping (Book?) -> Void) {
         let predicate = NSPredicate(format: "uuid = %@", uuid)
         
-        dataEngine.get(with: predicate) { (result: Result<[Book]>) in
+        dataEngine.fetch(with: predicate) { (result: Result<[Book]>) in
             switch result {
             case .success(let items):
                 self.book = items.first

@@ -13,6 +13,9 @@ class StoresViewController: UIViewController {
     @IBOutlet weak var amazonButton: UIButton!
     @IBOutlet weak var safariButton: UIButton!
     
+    lazy var window = UIApplication.shared.keyWindow!
+    var booksCoordinator: BooksCoordinator?
+    
     let dataModel: StoresDataModelProtocol = StoresDataModel()
     var stores: [Store]?
     
@@ -38,19 +41,17 @@ class StoresViewController: UIViewController {
     }
     
     @IBAction func showAmazon(_ sender: UIButton) {
-        let booksViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BooksViewController") as! BooksViewController
-        booksViewController.navigationItem.title = "Amazon"
-        booksViewController.store = stores?[0]
-        booksViewController.books = stores?[0].books
-        navigationController?.pushViewController(booksViewController, animated: true)
+        booksCoordinator = BooksCoordinator(window: window)
+        booksCoordinator?.store = stores?[0]
+        booksCoordinator?.start()
     }
     
     @IBAction func showSafari(_ sender: UIButton) {
         let booksViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BooksViewController") as! BooksViewController
         booksViewController.navigationItem.title = "Safari"
-        booksViewController.store = stores?[1]
-        booksViewController.books = stores?[1].books
-        navigationController?.pushViewController(booksViewController, animated: true)
+//        booksViewController.store = stores?[1]
+//        booksViewController.books = stores?[1].books
+//        navigationController?.pushViewController(booksViewController, animated: true)
     }
     
 }
