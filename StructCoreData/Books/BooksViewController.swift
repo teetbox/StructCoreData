@@ -30,6 +30,12 @@ class BooksViewController: UIViewController {
         fetchBooks()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        tableView.flashScrollIndicators()
+    }
+    
     func fetchBooks() {
         viewModel.loadData() {
             self.tableView.reloadData()
