@@ -33,7 +33,7 @@ class CoreDataWorker<ManagedObject, Entity>: CoreDataWorkerProtocol where Manage
                     fetchRequest.fetchLimit = fetchLimit
                 }
                 let results = try context.fetch(fetchRequest) as? [ManagedObject]
-                let items: [Entity] = results?.flatMap { $0.toEntity() as? Entity } ?? []
+                let items: [Entity] = results?.compactMap { $0.toEntity() as? Entity } ?? []
                 completion(.success(items))
             } catch {
                 NSLog("Core Data fetch error: \(error)")
@@ -44,7 +44,7 @@ class CoreDataWorker<ManagedObject, Entity>: CoreDataWorkerProtocol where Manage
     
     func update(entities: [Entity], completion: @escaping (Error?) -> Void) {
         coreData.performBackgroundTask { context in
-            _ = entities.flatMap { (entity) -> ManagedObject? in
+            _ = entities.compactMap { (entity) -> ManagedObject? in
                 return entity.toManagedObject(context: context) as? ManagedObject
             }
             

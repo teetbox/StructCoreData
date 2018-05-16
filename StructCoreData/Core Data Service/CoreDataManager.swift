@@ -63,7 +63,7 @@ class CoreDataManager {
     
     func resetData() {
         let entities = persistentContainer.managedObjectModel.entities
-        entities.flatMap ({ $0.name }).forEach(clearEntity)
+        entities.compactMap ({ $0.name }).forEach(clearEntity)
         
         createDummyData()
     }

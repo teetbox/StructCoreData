@@ -19,7 +19,7 @@ extension StoreMO: ManagedObjectProtocol {
         store.brand = brand
         store.address = address
         store.telephone = telephone
-        store.books = (books?.allObjects as? [BookMO])?.flatMap { $0.toEntity() }
+        store.books = (books?.allObjects as? [BookMO])?.compactMap { $0.toEntity() }
         return store
     }
 }
@@ -30,7 +30,7 @@ extension Store: ManagedObjectConvertible {
         store.brand = brand
         store.address = address
         store.telephone = telephone
-        if let books = books?.flatMap({ $0.toManagedObject(context: context) }) {
+        if let books = books?.compactMap({ $0.toManagedObject(context: context) }) {
             store.books = NSSet(array: books)
         }
         return store

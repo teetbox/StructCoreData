@@ -47,7 +47,7 @@ class CoreDataEngine: CoreDataServiceProtocol {
                 }
                 
                 let results = try context.fetch(fetchRequest) as? [Entity.ManagedObject]
-                let items = results?.flatMap { $0.toEntity() as? Entity } ?? []
+                let items = results?.compactMap { $0.toEntity() as? Entity } ?? []
                 completion(.success(items))
             } catch {
                 NSLog("Core Data fetch error: \(error)")
@@ -63,7 +63,7 @@ class CoreDataEngine: CoreDataServiceProtocol {
     func update<Entity>(entities: [Entity], completion: @escaping (Error?) -> Void) where Entity : ManagedObjectConvertible {
         
         coreData.performBackgroundTask { context in
-            _ = entities.flatMap { $0.toManagedObject(context: context) }
+            _ = entities.compactMap { $0.toManagedObject(context: context) }
             
             do {
                 try context.save()
@@ -78,7 +78,7 @@ class CoreDataEngine: CoreDataServiceProtocol {
     func delete<Entity>(entities: [Entity], completion: @escaping (Error?) -> Void) where Entity : ManagedObjectConvertible {
         
         coreData.performBackgroundTask { context in
-            let objects = entities.flatMap { $0.toManagedObject(context: context) }
+            let objects = entities.compactMap { $0.toManagedObject(context: context) }
             
             for object in objects {
                 context.delete(object)
