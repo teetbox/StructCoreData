@@ -47,11 +47,9 @@ class StoresViewController: UIViewController {
     }
     
     @IBAction func showSafari(_ sender: UIButton) {
-        let booksViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BooksViewController") as! BooksViewController
-        booksViewController.navigationItem.title = "Safari"
-//        booksViewController.store = stores?[1]
-//        booksViewController.books = stores?[1].books
-//        navigationController?.pushViewController(booksViewController, animated: true)
+        booksCoordinator = BooksCoordinator(window: window)
+        booksCoordinator?.store = stores?[1]
+        booksCoordinator?.start()
     }
     
 }

@@ -29,19 +29,21 @@ class BooksDataModel: BooksDataModelProtocol {
         dataEngine.fetch(with: predicate) { (result: Result<[Book]>) in
             switch result {
             case .success(let items):
-                completion(items + items + items + items + items, true)
+                completion(items, true)
             case .failure(let error):
                 NSLog("Fetch notes error: \(error)")
                 completion(nil, true)
             }
         }
-        
+
+        /* Simulating delayed updates
         // Networking happens here
         DispatchQueue.global().async {
             sleep(2)
             let newBooks = Array(repeating: Book(uuid: "ss", title: "new", price: nil, publisher: nil, author: nil, notes: nil), count: 3)
             completion(newBooks, false)
         }
+        */
     }
     
 }

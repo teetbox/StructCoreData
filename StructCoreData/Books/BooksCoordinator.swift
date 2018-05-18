@@ -29,7 +29,7 @@ class BooksCoordinator {
         
         booksViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BooksViewController") as? BooksViewController
         booksViewController!.viewModel = viewModel
-        booksViewController!.navigationItem.title = "Amazon"
+        booksViewController!.navigationItem.title = store?.brand
         
         let topNavigation = UIApplication.topNaviController()
         topNavigation?.pushViewController(booksViewController!, animated: true)
